@@ -59,16 +59,6 @@ return {
                 open_project_file()
               end,
             },
-            {
-              key = "1",
-              desc = "Novgorod bot",
-              action = function()
-                vim.cmd("cd ~/Projects/novg_bots/")
-                vim.o.titlestring = "Novgorod bot"
-                vim.cmd("AstroRoot")
-                open_project_file()
-              end,
-            },
           },
         },
       },
