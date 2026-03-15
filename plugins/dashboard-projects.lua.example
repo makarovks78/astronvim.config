@@ -1,0 +1,77 @@
+-- Функция для поиска и открытия README.md, или других файлов, например, package.json, cargo.toml и т.д.
+function open_project_file()
+  local files_to_check = {
+    "README.md", "README", "readme", "readme.md",  -- различные варианты README
+    "package.json", "composer.json", "Cargo.toml", -- для JavaScript, PHP, Rust
+    "go.mod", "go.sum",  -- для Go
+    "Dockerfile", "Makefile", -- для универсальных проектов
+    ".gitignore", -- если это git-проект
+  }
+  
+  local found = false
+  
+  -- Ищем каждый файл по очереди
+  for _, filename in ipairs(files_to_check) do
+    local filepath = vim.fn.glob(filename)
+    
+    if filepath ~= "" then
+      -- Если файл найден, открываем его
+      vim.cmd("edit " .. filepath)
+      found = true
+      break
+    end
+  end
+  
+  -- Если файл не найден, выводим сообщение
+  if not found then
+    print("No suitable project file found.")
+  end
+end
+
+
+return {
+  {
+    "folke/snacks.nvim",
+    opts = {
+       dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+          -- кастомные кнопки
+          keys = {
+            {
+              key = "0",
+              desc = "NVim Config",
+              action = function()
+                vim.cmd("cd ~/.config/nvim/lua/")
+                vim.o.titlestring = "NVim Config"
+                open_project_file()
+              end,
+            },
+            {
+              key = "1",
+              desc = "Novgorod bot",
+              action = function()
+                vim.cmd("cd ~/Projects/novg_bots/")
+                vim.o.titlestring = "Novgorod bot"
+                vim.cmd("AstroRoot")
+                open_project_file()
+              end,
+            },
+          },
+        },
+      },
+    },
+  },
+}
