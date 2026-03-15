@@ -6,6 +6,7 @@ function open_project_file()
     "go.mod", "go.sum",  -- для Go
     "Dockerfile", "Makefile", -- для универсальных проектов
     ".gitignore", -- если это git-проект
+    "polish.lua", -- для конфига    
   }
   
   local found = false
