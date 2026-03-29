@@ -10,7 +10,6 @@ vim.keymap.set("v", "K", "5k", { noremap = true })
 vim.keymap.set("n", "oo", "o<Esc>k", {noremap = true})
 
 vim.keymap.set("n", "<leader>L", "<cmd>LazySql<CR>", { desc = "LazySql", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>a", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanionChat", noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "mysql", "sql", "dbui", "dbout" },
