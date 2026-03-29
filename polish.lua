@@ -7,6 +7,8 @@ vim.keymap.set("n", "K", "5k", { noremap = true })
 vim.keymap.set("v", "J", "5j", { noremap = true })
 vim.keymap.set("v", "K", "5k", { noremap = true })
 
+vim.keymap.set("v", "y", "ygv<Esc>", { noremap = true })
+
 vim.keymap.set("n", "oo", "o<Esc>k", {noremap = true})
 
 vim.keymap.set("n", "<leader>L", "<cmd>LazySql<CR>", { desc = "LazySql", noremap = true, silent = true })
