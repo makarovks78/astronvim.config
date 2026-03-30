@@ -8,6 +8,8 @@ return {
       buffers = {
         sort_mru = false,
         sort_lastused = false,
+        sorting_strategy = "ascending",
+        initial_mode = "normal",
         mappings = {
           i = {
             ["<C-d>"] = actions.delete_buffer, -- Удалить буфер в insert mode
