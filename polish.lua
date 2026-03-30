@@ -12,6 +12,7 @@ vim.keymap.set("v", "y", "ygv<Esc>", { noremap = true })
 vim.keymap.set("n", "oo", "o<Esc>k", {noremap = true})
 
 vim.keymap.set("n", "<leader>L", "<cmd>LazySql<CR>", { desc = "LazySql", noremap = true, silent = true })
+vim.keymap.set("n", "<F12>", "<cmd>Telescope buffers<CR>", { desc = "Buffers", noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "mysql", "sql", "dbui", "dbout" },
